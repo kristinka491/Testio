@@ -46,7 +46,6 @@ struct HomeView: View {
                 .padding(.top, 24)
                 .padding(.bottom, 8)
                 .background(Color.lightGrayColor)
-                .padding(.horizontal, .zero)
                
                 List(viewModel.listOfLocations, id: \.name) { item in
                     itemCell(item: item)
@@ -76,7 +75,7 @@ struct HomeView: View {
             }
         }
         .confirmationDialog("", isPresented: $showFilterSheet) {
-            ForEach(HomeViewModel.FilterType.allCases) { type in
+            ForEach(HomeViewModel.FilterType.allCases, id: \.title) { type in
                 Button(type.title) {
                     viewModel.selectedFilterType = type
                 }

@@ -9,13 +9,9 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
-    enum FilterType: String, CaseIterable, Identifiable {
+    enum FilterType: String, CaseIterable {
         case byDistance
         case alphabetically
-        
-        var id: String {
-            rawValue
-        }
         
         var title: String {
             switch self {
